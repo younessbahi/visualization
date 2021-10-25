@@ -17,8 +17,9 @@ if (!require(victor)) {
 # 		purrr::map_chr(dubai, "city")
 # cityData <- purrr::map(
 # 		dubai,
-# 		~ victor::spoils(.x$lon,
-# 		                 .x$lat,
+# 		~ victor::spoils(
+#				.x$lon,
+# 		                .x$lat,
 # 		                 zoom = 15,
 # 		                 nrow = 25,
 # 		                 ncol = 14
@@ -44,20 +45,20 @@ mapBuildings <-
 		ggthemes::scale_fill_tableau(palette = "Jewel Bright", direction = -1) +
 		theme_void() +
 		theme(
-				panel.background = element_rect(colour = NA, fill = "#0a0a0a"),
-				plot.background = element_rect(colour = NA, fill = "#0a0a0a"),
-				plot.margin = margin(0, 2, 0, 2),
-				legend.key.size = unit(.2, 'cm'),
-				legend.key.height = unit(.2, 'cm'), #change legend key height
-				legend.key.width = unit(1, 'cm'), #change legend key width
-				legend.position = "bottom" ,#c(0.01, 0.02),
-				legend.background = element_blank(),
-				legend.key = element_blank(),
-				legend.text = element_text(colour = "white"),
-				legend.margin = margin(-15,0,3,0),
-				legend.box.background = element_rect(color = NA, fill = NA),
-				legend.direction = "horizontal",
-				legend.justification = c(0, 0)
+			panel.background = element_rect(colour = NA, fill = "#0a0a0a"),
+			plot.background = element_rect(colour = NA, fill = "#0a0a0a"),
+			plot.margin = margin(0, 2, 0, 2),
+			legend.key.size = unit(.2, 'cm'),
+			legend.key.height = unit(.2, 'cm'), #change legend key height
+			legend.key.width = unit(1, 'cm'), #change legend key width
+			legend.position = "bottom" ,#c(0.01, 0.02),
+			legend.background = element_blank(),
+			legend.key = element_blank(),
+			legend.text = element_text(colour = "white"),
+			legend.margin = margin(-15,0,3,0),
+			legend.box.background = element_rect(color = NA, fill = NA),
+			legend.direction = "horizontal",
+			legend.justification = c(0, 0)
 		)
 
 ggsave(plot = mapBuildings, here("dubai_buildings.png"), width = 8, height = 10, dpi = 300)
