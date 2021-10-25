@@ -7,11 +7,11 @@ if (!require(victor)) {
 
 ## IMPORT DATA VIA API ---
 # dubai <-
-# 		tribble(
-# 				~city, ~lon, ~lat,
-# 				"Dubai", 55.296249,25.276987
-# 		) %>%
-# 				purrr::transpose()
+# 	tribble(
+#		~city, ~lon, ~lat,
+# 		"Dubai", 55.296249,25.276987
+# 	) %>%
+# 		purrr::transpose()
 #
 # names(dubai) <-
 # 		purrr::map_chr(dubai, "city")
