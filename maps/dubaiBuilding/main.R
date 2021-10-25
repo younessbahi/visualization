@@ -97,14 +97,3 @@ magick::image_append(c(plots, legends), stack = TRUE) %>%
 				offset = "+0+300"
 		) %>%
 		image_write(here("Dubai_buildings_height.png"))
-
-
-
-
-
-
-
-
-
-
-
