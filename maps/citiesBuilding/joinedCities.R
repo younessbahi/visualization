@@ -17,18 +17,20 @@ mapBuildings <-
 		             buildings,
 		             ~ ggplot() +
 		             geom_sf(data = filter(.x, height <= 30), fill = "#798992", alpha = .9, colour = NA) +
-				             geom_sf(data = filter(.x, height > 30) %>%
-											mutate(height_fct = cut(height, breaks = 5)),
-									        aes(fill = height_fct), colour = NA
+				         geom_sf(
+									 data = filter(.x, height > 30) %>%
+									 mutate(height_fct = cut(height, breaks = 5)),
+									 aes(fill = height_fct), colour = NA
 									) +
-				             ggplot2::annotate("text", -Inf, Inf,
-				                               label = toupper(.y),
-				                               hjust = 0,
-				                               vjust = 1,
-				                               colour = "white",
-				                               alpha = 0.6,
-				                               size = 7
-				             ) +
+				          ggplot2::annotate(
+											 "text", -Inf, Inf,
+				               label = toupper(.y),
+				               hjust = 0,
+				               vjust = 1,
+				               colour = "white",
+				               alpha = 0.6,
+				               size = 7
+				          ) +
 									guides(fill = guide_legend(title = NULL, override.aes = list(size = 1, alpha = 1))) +
 									ggthemes::scale_fill_tableau(palette = "Jewel Bright", direction = -1) +
 									theme_void() +
