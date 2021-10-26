@@ -14,7 +14,7 @@ mapBuildings <-
     buildings,
     ~ ggplot() +
       geom_sf(data = filter(.x, height <= 30), fill = "#798992", alpha = .9, colour = NA) +
-      geom_sf(data                           = filter(.x, height > 30) %>%
+      geom_sf(data = filter(.x, height > 30) %>%
         mutate(height_fct = cut(height, breaks = 5)),
               aes(fill = height_fct), colour = NA
       ) +
