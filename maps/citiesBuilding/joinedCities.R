@@ -5,12 +5,10 @@ if (!require(victor)) {
 	library(victor)
 }
 
-
 ## LOADING DATA ----
 citiesData <- readRDS('citiesData.RDS')
 
 buildings <- map(citiesData, "building")
-
 
 mapBuildings <-
              imap(
