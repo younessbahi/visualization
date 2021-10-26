@@ -7,7 +7,6 @@ if (!require(victor)) {
 
 ## LOADING DATA ----
 citiesData <- readRDS('citiesData.RDS')
-
 buildings <- map(citiesData, "building")
 
 mapBuildings <-
