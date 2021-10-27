@@ -13,9 +13,9 @@ mapBuildings <-
   imap(
     buildings,
     ~ ggplot() +
-      geom_sf(data = filter(.x, height <= 30), fill = "#798992", alpha = .9, colour = NA) +
-      geom_sf(data = filter(.x, height > 30) %>%
-        mutate(height_fct = cut(height, breaks = 5)),
+      geom_sf(data = filter(.x, height <= 20), fill = "#798992", alpha = .9, colour = NA) +
+      geom_sf(data = filter(.x, height > 20) %>%
+        mutate(height_fct = cut(height, breaks = 3)),
               aes(fill = height_fct), colour = NA
       ) +
       ggplot2::annotate("text", - Inf, Inf,
@@ -46,10 +46,10 @@ mapBuildings <-
         legend.justification  = c(0, 0)
       )
   )
-wrap_plots(maps)
+wrap_plots(mapBuildings)
 
-ggsave("citiesBuildings.png", height = 5, width = 10, dpi = 300)
-main_image <- magick::image_read("citiesBuildings.png")
+ggsave("./citiesBuildings_.png", height = 5, width = 10, dpi = 300)
+main_image <- magick::image_read("./citiesBuildings_.png")
 main_image %>%
   magick::image_annotate(
     text     = "Building Height Distribution",
@@ -66,4 +66,4 @@ main_image %>%
     size     = 40,
     location = "+42+0"
   ) %>%
-  image_write(here("Dubai_buildings_height.png"), quality = 100)
+  image_write(here("Dubai_buildings_height_.png"), quality = 100)
