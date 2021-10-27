@@ -1,4 +1,4 @@
-pacman::p_load(conflicted, tidyverse, dplyr, sf, purrr, here, magrittr, patchwork, magick)
+pacman::p_load(conflicted, tidyverse, dplyr, sf, purrr, magrittr, patchwork, magick)
 conflict_prefer("filter", "dplyr")
 if (! require(victor)) {
   remotes::install_github("adam-gruer/victor")
@@ -66,4 +66,4 @@ main_image %>%
     size     = 40,
     location = "+42+0"
   ) %>%
-  image_write(here("./Dubai_buildings_height_.png"), quality = 100)
+  image_write("./cities_buildings_height_.png", quality = 100)
