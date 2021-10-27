@@ -66,4 +66,4 @@ main_image %>%
     size     = 40,
     location = "+42+0"
   ) %>%
-  image_write(here("Dubai_buildings_height_.png"), quality = 100)
+  image_write(here("./Dubai_buildings_height_.png"), quality = 100)
