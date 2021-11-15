@@ -59,9 +59,7 @@ map_ <-
       title.hjust    = .5
     )
   ) +
-  
-map_ <-
-ggplot2::labs(caption = "<b>Data: afrilearndata</b> ■ <i>by: Youness Bahi</i>") +
+  labs(caption = "<b>Data: afrilearndata</b> ■ <i>by: Youness Bahi</i>") +
   coord_fixed() +
   theme_void(base_family = font3, base_size = 45) +
   theme(
