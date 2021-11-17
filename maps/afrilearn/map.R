@@ -84,7 +84,6 @@ map_ <-
 ggsave(
   plot = map_,
   filename = "africa-pop-density-2020.png",
-  path = "exercises/mapping",
   device = 'png',
   height = 8,
   width = 7,
