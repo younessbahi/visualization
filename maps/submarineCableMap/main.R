@@ -107,5 +107,5 @@ imgList <- cbind(order, imgs) %>%
 imgList$imgs %>%
   magick::image_read() %>% # reads each path file
   magick::image_join() %>% # joins image
-  magick::image_animate() %>% # animates, can opt for number of loops
+  magick::image_animate(fps = 10) %>% # animates, can opt for number of loops
   magick::image_write("FileName.gif") # write to current dir
