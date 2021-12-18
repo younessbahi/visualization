@@ -5,5 +5,5 @@
 #### 💵 Top Paid Technologies per Developer type
 ![./stackoverflow_survey/output/TopPaidTech-2021.png](https://github.com/younessbahi/visualization/blob/main/stackoverflow_survey/output/TopPaidTech-2021.png?raw=true)
 
-#### 🕵🏻‍♂️ Technologies by Branch in Scientist|Analyst|Researche field
+#### 🕵🏻‍♂️ Technologies by Branch in Scientist|Analyst|Research roles
 ![./stackoverflow_survey/output/FindingMainSAR-2021.png](https://github.com/younessbahi/visualization/blob/main/stackoverflow_survey/output/FindingMainSAR-2021.png?raw=true)
