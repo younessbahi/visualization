@@ -1,9 +1,12 @@
 source('global/functions.R')
 source('global/dependencies.R')
 
-
 tictoc::tic("Importing Data", quiet = FALSE, func.tic = my.msg.tic)
-#Data source: https://insights.stackoverflow.com/survey
+#Download data from: https://insights.stackoverflow.com/survey
+#Create directories and store the downloaded 2020 & 2021 datasets:
+#dir.create('data')
+#dir.create('data/2020')
+#dir.create('data/2021')
 survey20 <- read.csv('data/2020/survey_results_public.csv', header = T) %>% tibble
 survey21 <- read.csv('data/2021/survey_results_public.csv', header = T) %>% tibble
 tictoc::toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
