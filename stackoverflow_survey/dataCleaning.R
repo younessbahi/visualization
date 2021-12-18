@@ -50,6 +50,7 @@ currSymb <-
   na.omit(joined$CurrencySymbol) %>%
     unique
 
+#Convert currencies to dollar last price
 quote <-
   quantmod::getQuote(paste0(currSymb, 'USD', "=X")) %>%
     select(Last) %>%
