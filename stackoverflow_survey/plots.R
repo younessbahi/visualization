@@ -1,4 +1,4 @@
-tictoc::tic("Building visualization: 1st Plot", quiet = FALSE, func.tic = my.msg.tic)
+tic("Building visualization: 1st Plot", quiet = FALSE, func.tic = my.msg.tic)
 sysfonts::font_add_google('Roboto Condensed', 'Roboto Condensed')
 sysfonts::font_add_google('Baloo 2', 'Baloo 2')
 sysfonts::font_add_google('Source Sans Pro', 'Source Sans Pro')
@@ -117,12 +117,12 @@ for (i in seq_along(strips)) {
 }
 langSAR_plot <- grid::grid.draw(g)
 
-tictoc::toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
+toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
 
 ######################################
 # Salaries DevTypes by Technology ----
 ######################################
-tictoc::tic("Building visualization: 2nd Plot", quiet = FALSE, func.tic = my.msg.tic)
+tic("Building visualization: 2nd Plot", quiet = FALSE, func.tic = my.msg.tic)
 topPaidTech <-
   df %>%
     group_by(DevType_split, Language_split) %>%
@@ -182,13 +182,13 @@ topPaidTech_plot <-
     caption_family = NULL
   ) +
   customThemeP2
-tictoc::toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
+toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
 topPaidTech_plot #plot
 
 ##############################################
 # Woman Representation in Developer Roles ----
 ##############################################
-tictoc::tic("Building visualization: 3rd Plot", quiet = FALSE, func.tic = my.msg.tic)
+tic("Building visualization: 3rd Plot", quiet = FALSE, func.tic = my.msg.tic)
 genderRep <-
   df %>%
     filter(Gender != 'Other' & ! is.na(Gender)) %>%
@@ -212,16 +212,16 @@ genderRep <-
       color_link    = if (change <= 0) "#50af92" else "#F57665",
       color_inverse = if (change > 0) "#50af92" else "#F57665",
       color         = "grey50",
-      x             = if (`2021` < 0.0317) `2020` else `2021`,
-      hjust         = if (`2021` < 0.0317) 0 else 1.2,
-      label = {
+      x             = if (`2021` < .0317) `2020` else `2021`,
+      hjust         = if (`2021` < .0317) 0 else 1.2,
+      vjust         = 0,
+      fill          = NA,
+      label.colour  = NA,
+      label         = {
         glue::glue(
           "<span style = 'font-size:15px;font-weight: bold;color:{color_inverse}'>{indice}{change}</span>"
         )
       },
-      vjust         = 0,
-      fill          = NA,
-      label.colour  = NA
     )
 
 genderRep %<>%
@@ -273,7 +273,7 @@ plotWRep <-
       alpha = .7,
       n     = 2000
     ) +
-    annotate("rect", xmin = 0.02, xmax = 0.03, ymin = 0, ymax = 23, alpha = .1, fill = "#DD3E3E", color = '#36393c') +
+    annotate("rect", xmin = .02, xmax = .03, ymin = 0, ymax = 23, alpha = .1, fill = "#DD3E3E", color = '#36393c') +
     geom_vline(xintercept = .03, colour = 'red', linetype = 'dashed', alpha = .5) +
     geom_vline(xintercept = .06, colour = '#45969B', linetype = 'dashed', alpha = .5) +
     geom_point(
@@ -296,7 +296,7 @@ plotWRep <-
       data              = filter(genderRep, DevType_split == "Educator"),
       aes(label = 'index: 2021 '),
       nudge_x           = - .02,
-      box.padding       = 0.5,
+      box.padding       = .5,
       nudge_y           = 1,
       segment.curvature = - 1,
       segment.ncp       = 3,
@@ -307,7 +307,7 @@ plotWRep <-
       data              = filter(genderRep, DevType_split == "Educator"),
       aes(x = `2020`, label = 'index: 2020 '),
       nudge_x           = .01,
-      box.padding       = 0.05,
+      box.padding       = .05,
       nudge_y           = - 1,
       segment.curvature = - 0.1,
       segment.ncp       = 3,
@@ -322,7 +322,7 @@ plotWRep <-
     ) +
     theme_minimal(base_size = 14, base_family = "Roboto Condensed") +
     customThemeP3
-tictoc::toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
+toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
 plotWRep #plot
 cat(crayon::bold('🚕 All done\n'))
 cat(
