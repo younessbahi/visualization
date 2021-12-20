@@ -1,7 +1,7 @@
 source('global/functions.R')
 source('global/dependencies.R')
 
-tictoc::tic("Importing Data", quiet = FALSE, func.tic = my.msg.tic)
+tic("Importing Data", quiet = FALSE, func.tic = my.msg.tic)
 #Download data from: https://insights.stackoverflow.com/survey
 #Create directories and store the downloaded 2020 & 2021 datasets:
 #dir.create('data')
@@ -9,9 +9,9 @@ tictoc::tic("Importing Data", quiet = FALSE, func.tic = my.msg.tic)
 #dir.create('data/2021')
 survey20 <- read.csv('data/2020/survey_results_public.csv', header = T) %>% tibble
 survey21 <- read.csv('data/2021/survey_results_public.csv', header = T) %>% tibble
-tictoc::toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
+toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
 
-tictoc::tic("Processing Data", quiet = FALSE, func.tic = my.msg.tic)
+tic("Processing Data", quiet = FALSE, func.tic = my.msg.tic)
 colnames(survey21) <- gsub('HaveWorkedWith', '', colnames(survey21))
 colnames(survey20) <- gsub('WorkedWith', '', colnames(survey20))
 
@@ -50,7 +50,6 @@ currSymb <-
   na.omit(joined$CurrencySymbol) %>%
     unique
 
-#Convert currencies to dollar last price
 quote <-
   quantmod::getQuote(paste0(currSymb, 'USD', "=X")) %>%
     select(Last) %>%
@@ -135,4 +134,4 @@ df %<>%
       )
     }
   )
-tictoc::toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
+toc(quiet = FALSE, func.toc = my.msg.toc, info = "DONE")
