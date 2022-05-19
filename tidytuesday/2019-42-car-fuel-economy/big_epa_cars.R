@@ -1,6 +1,4 @@
-# title: "Tidy Tuesday - Big EPA Cars"
-# author: "Christophe Nicault"
-# date: "15 octobre 2019"
+
 
 library(tidyverse)
 library(ggthemr)
